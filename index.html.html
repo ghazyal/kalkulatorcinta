@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Cinta ❤️</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+
+    <div class="card text-center shadow-lg p-4" style="width: 24rem;">
+        <div class="card-body">
+            <h5 class="card-title">❤️ Kalkulator Cinta 💖</h5>
+            <p class="card-text">Masukkan namamu dan pasanganmu untuk menghitung kecocokan cinta!</p>
+            <input type="text" id="nama1" class="form-control mb-2" placeholder="Namamu">
+            <input type="text" id="nama2" class="form-control mb-3" placeholder="Nama pasanganmu">
+            <button class="btn btn-danger" onclick="hitungCinta()">Hitung Cinta! 💘</button>
+        </div>
+    </div>
+
+    <script>
+        function hitungCinta() {
+            let nama1 = document.getElementById("nama1").value.trim();
+            let nama2 = document.getElementById("nama2").value.trim();
+
+            if (nama1 === "" || nama2 === "") {
+                Swal.fire({
+                    title: "Oops! 😅",
+                    text: "Harap isi kedua nama terlebih dahulu!",
+                    icon: "warning"
+                });
+                return;
+            }
+
+            let persenCinta = Math.floor(Math.random() * 101); // Hasil random 0-100%
+
+            let pesan = "";
+            if (persenCinta > 80) {
+                pesan = "🔥 Pasangan sempurna! Kalian bagaikan HTML & CSS yang nggak bisa dipisahkan!";
+            } else if (persenCinta > 50) {
+                pesan = "😍 Lumayan cocok! Seperti JavaScript dan jQuery, bisa jalan sendiri tapi lebih kuat bareng!";
+            } else {
+                pesan = "💔 Yah... Seperti Internet Explorer, harus move on ke yang lebih baik!";
+            }
+
+            Swal.fire({
+                title: `Hasilnya: ${persenCinta}% ❤️`,
+                text: pesan,
+                icon: "success"
+            });
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
